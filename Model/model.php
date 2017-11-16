@@ -104,31 +104,35 @@ function editOne($id, $title, $description) {
 	}
 }
 
-function RequeteUser () {
-	$reqUser =prepareStatement('SELECT * FROM user WHERE login=? AND password=?');
+function RequeteUser ($login,$password,$ok) {
+	$ok= NULL;
+
+	$sql = 'SELECT * FROM user WHERE login=? AND password=?';
+	$reqUser =prepareStatement($sql);
+
 
 	$reqUser->execute(array($login, $password));
 
+
 	$userExist = $reqUser->rowCount();
 
-	if($userExist=1) {
+	if($userExist==1) { 
+
 		$userData = $reqUser->fetch();
 
 		$_SESSION['id_user']= $userData['id_user'];
 		$_SESSION['login'] = $userData['login'];
-		$_SESSION['mail'] = $userData['mail'];
+		$_SESSION['password'] = $userData['password'];
 
-		
+		$ok=TRUE;
 	}
+	
+	return $ok;
+}	
+	
 
-	else{
 
-		echo 'Vous devez vous inscrire';
-		echo "<a href=Inscription.php</a>" 
-	}
-}
-
-function Inscription()
+function Inscription($login,$email,$password,$password_confirm)
 {
 	if (($login ==true) AND ($email ==true) AND($password ==true) AND($password_confirm ==true) ){
 
@@ -157,5 +161,5 @@ function Inscription()
 	}else {
 
 		$error= "Vous devez remplir tous les champs";
-	} // remplir tous les champs
+	} 
 }	

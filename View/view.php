@@ -7,21 +7,26 @@
   <body>
     <h1>todo-list</h1>
     <ul>
+
     <?php
 
       foreach ($todos as $ligne) {
     ?>
+
       <li>
         <a href="read.php?id=<?php echo $ligne['id']; ?>">
-          <?php echo $ligne['title']; ?>
-          <p><?php echo $todos['art_content'] ?></p>
+          <?php echo $ligne['title']; ?> 
         </a>
       </li>
+
     <?php
       }
     ?>
+
       <li><a href="add.php">ajouter une tâche...</a></li>
-	<li><a href="./deconnexion.php">Déconnexion</a></li>	
+	    <li><a href="./deconnexion.php">Déconnexion</a></li>	
+
     </ul>
+    
   </body>
 </html>

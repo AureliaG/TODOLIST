@@ -2,7 +2,7 @@
 	
 	<h1> Connexion Membre</h1>
 
-		<form action=" " method="POST"> 
+		<form action="" method="POST"> 
     
 		    <div>
 		      <label for="nom"> Login</label>
@@ -16,7 +16,7 @@
 		    </div>
 		   
 		    		
-		    <input type="submit" name="bouton_connexion" value="Connexion">
+		    <input type="submit" name="bouton_connexion" value="connexion">
 		
 		</form>
 
